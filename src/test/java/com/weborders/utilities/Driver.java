@@ -6,6 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.FileInputStream;
+import java.util.Properties;
+
 public class Driver {
 // reference variable, pointer on the object
 // if reference variable does not point on any object, it will have a null value
@@ -15,9 +18,12 @@ public class Driver {
 // firefox, etc.. classes, we can specify reference type as a WebDriver. it helps to define object type in a run time (polymorphism)
     private static WebDriver driver;
 
-    private Driver(){
+    private Driver(){}
+
+    public static WebDriver getDriver(){
 
         if(driver==null){
+
             String browser = "chrome";
             switch (browser){
                 case "chrome":
@@ -33,6 +39,7 @@ public class Driver {
             }
 
         }
+        return driver;
 
 
     }
